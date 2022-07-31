@@ -4,12 +4,15 @@ import {
     GET_BLOG_SUCCESS,
     GET_BLOG_FAIL,
     GET_BLOG_LIST_CATEGORIES_SUCCESS,
-    GET_BLOG_LIST_CATEGORIES_FAIL
+    GET_BLOG_LIST_CATEGORIES_FAIL,
+    GET_SEARCH_BLOG_SUCCESS,
+    GET_SEARCH_BLOG_FAIL
 } from '../actions/types';
 
 const initialState = {
     blog_list: null,
     blog_list_category: null,
+    filtered_posts: null,
     post: null,
     count: null,
     next: null,
@@ -61,6 +64,16 @@ export default function blog(state = initialState, action) {
             return {
                 ...state,
                 post: null
+            }
+        case GET_SEARCH_BLOG_SUCCESS:
+            return {
+                ...state,
+                filtered_posts: payload.filtered_posts
+            }
+        case GET_SEARCH_BLOG_FAIL:
+            return {
+                ...state,
+                filtered_posts: null
             }
         default:
             return state

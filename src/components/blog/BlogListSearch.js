@@ -44,7 +44,6 @@ function BlogList({
 }
 
 const mapStateToProps = state => ({
-    
     count: state.blog.count
 })
 
